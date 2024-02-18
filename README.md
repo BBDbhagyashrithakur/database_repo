@@ -2,7 +2,7 @@
 
 
 
- ##View to display college and tpo information
+ ## View to display college and tpo information
 
 CREATE VIEW college_tpo_view
 AS
@@ -14,11 +14,11 @@ JOIN tpo t ON c.college_id = t.college_id;
 select * from college_tpo_view;
 
 
---calling view
+# calling view
 select * from college_tpo_view;
 
 
- ##Procedure to display student with company details.
+ ## Procedure to display student with company details.
 
 CREATE PROCEDURE GetStudentCompanyDetails
 AS
@@ -30,12 +30,12 @@ BEGIN
     JOIN company co ON s.college_id = co.company_id;
 END;
 
---calling procedure
+# calling procedure
 EXEC  GetStudentCompanyDetails
 
 
 
-##Function to display student information by their name
+## Function to display student information by their name
 
 CREATE FUNCTION GetStudentsByName(@first_name VARCHAR(255))
 RETURNS TABLE
@@ -47,11 +47,11 @@ RETURN
     WHERE s.first_name = @first_name
 );
 
---calling function
+# calling function
 select * from GetStudentsByName('shree')
 
 
-##Scalar function to count number of student
+## Scalar function to count number of student
 
 CREATE FUNCTION GetStudentsByCount()
 RETURNS TABLE
@@ -61,7 +61,7 @@ RETURN
 SELECT count(student_id) AS NumStudents FROM Student
 );
 
---calling function 
+# calling function 
 
 select * from GetStudentsByCount();
 
