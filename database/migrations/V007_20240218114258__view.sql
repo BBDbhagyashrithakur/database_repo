@@ -1,3 +1,5 @@
+ -- View to display college and tpo information
+
 CREATE VIEW college_tpo_view
 AS
 SELECT 
