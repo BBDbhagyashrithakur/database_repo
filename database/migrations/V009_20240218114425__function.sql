@@ -1,3 +1,5 @@
+-- Function to display student information by their name
+
 CREATE FUNCTION GetStudentsByName(@first_name VARCHAR(255))
 RETURNS TABLE
 AS
