@@ -14,11 +14,12 @@ SELECT
     t.tpo_id, t.first_name, t.last_name, t.contact AS tpo_contact, t.email AS tpo_email,t.city_name, t.zip_code
 FROM college c
 JOIN tpo t ON c.college_id = t.college_id;
-select * from college_tpo_view;
-
 
 # calling view
 select * from college_tpo_view;
+
+![image](https://github.com/BBDbhagyashrithakur/database_repo/assets/159768548/b3d5e4d0-f12c-44a3-8e0f-e2a581ab11f3)
+
 
 
  ## Procedure to display student with company details.
@@ -36,7 +37,7 @@ END;
 # calling procedure
 EXEC  GetStudentCompanyDetails
 
-
+![image](https://github.com/BBDbhagyashrithakur/database_repo/assets/159768548/e57f8ae0-ae93-4547-8fb9-2de0ea769cea)
 
 ## Function to display student information by their name
 
@@ -53,8 +54,10 @@ RETURN
 # calling function
 select * from GetStudentsByName('shree')
 
+![image](https://github.com/BBDbhagyashrithakur/database_repo/assets/159768548/8af9876e-958d-4174-b1f5-bafe772663fc)
 
-## Scalar function to count number of student
+
+## Scaler function to count number of student
 
 CREATE FUNCTION GetStudentsByCount()
 RETURNS TABLE
@@ -67,6 +70,9 @@ SELECT count(student_id) AS NumStudents FROM Student
 # calling function 
 
 select * from GetStudentsByCount();
+
+![image](https://github.com/BBDbhagyashrithakur/database_repo/assets/159768548/99f407e8-57ee-4941-99fa-0e65d22605cb)
+
 
 
 ## Features
