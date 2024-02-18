@@ -1,3 +1,5 @@
+-- Scalar function to count number of student
+
 CREATE FUNCTION GetStudentsByCount()
 RETURNS TABLE
 AS
