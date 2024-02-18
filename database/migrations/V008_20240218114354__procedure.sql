@@ -1,3 +1,5 @@
+-- Procedure to display student with company details.
+
 CREATE PROCEDURE GetStudentCompanyDetails
 AS
 BEGIN
