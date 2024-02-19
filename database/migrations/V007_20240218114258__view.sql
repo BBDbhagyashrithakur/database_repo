@@ -1,5 +1,4 @@
  -- View to display college and tpo information
-use temp
 CREATE VIEW college_tpo_view
 AS
 SELECT 
@@ -7,4 +6,6 @@ SELECT
     t.tpo_id, t.first_name, t.last_name, t.contact AS tpo_contact, t.email AS tpo_email,t.city_name, t.zip_code
 FROM college c
 JOIN tpo t ON c.college_id = t.college_id;
-select * from college_tpo_view;
+
+
+--select * from college_tpo_view;
