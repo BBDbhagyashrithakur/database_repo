@@ -5,7 +5,7 @@ RETURN
 (
     SELECT tpo.first_name AS tpo_first_name, tpo.last_name AS tpo_last_name,
            tpo.contact AS tpo_contact, tpo.email AS tpo_email,
-           tpo.depeartment AS tpo_department, tpo.city_name AS tpo_city_name,
+           tpo.department AS tpo_department, tpo.city_name AS tpo_city_name,
            tpo.postal_code AS tpo_postal_code, tpo.college_id AS tpo_college_id,
            student.first_name AS student_first_name, student.last_name AS student_last_name,
            student.contact AS student_contact, student.email AS student_email,
