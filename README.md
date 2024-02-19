@@ -55,7 +55,7 @@ select * from GetStudentsByName('shree')
 ![image](https://github.com/BBDbhagyashrithakur/database_repo/assets/159768548/8af9876e-958d-4174-b1f5-bafe772663fc)
 
 
-## Scaler function to count number of student
+## Scalar function to count number of student
 
 CREATE FUNCTION GetStudentsByCount()
 RETURNS TABLE
@@ -65,7 +65,7 @@ RETURN
 SELECT count(student_id) AS NumStudents FROM Student
 );
 
-# calling scaler function 
+# calling scalar function 
 
 select * from GetStudentsByCount();
 
