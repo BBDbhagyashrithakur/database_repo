@@ -73,7 +73,7 @@ select * from GetStudentsByCount();
 
 
 
-## Features
+## Features --
  
 - Login
 - Registration
