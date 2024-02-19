@@ -1,5 +1,5 @@
  -- View to display college and tpo information
-CREATE VIEW college_tpo_view01
+CREATE VIEW college_tpo_view
 AS
 SELECT 
     c.college_id, c.college_name, c.contact,
