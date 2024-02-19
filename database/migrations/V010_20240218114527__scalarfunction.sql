@@ -9,4 +9,3 @@ SELECT count(student_id) AS NumStudents FROM Student
 );
 
 
-select * from GetStudentsByCount();
