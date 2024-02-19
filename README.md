@@ -64,7 +64,7 @@ RETURN
 SELECT count(student_id) AS NumStudents FROM Student
 );
 
-# calling function 
+# calling scaler function 
 
 select * from GetStudentsByCount();
 
