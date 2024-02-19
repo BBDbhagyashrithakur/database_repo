@@ -18,7 +18,7 @@ AS
 BEGIN
     IF @table_name = 'tpo'
     BEGIN
-        INSERT INTO tpo (first_name, last_name, contact, email, depeartment, city_name, postal_code, college_id)
+        INSERT INTO tpo (first_name, last_name, contact, email, department, city_name, postal_code, college_id)
         VALUES (@first_name, @last_name, @contact, @email, @department, @city_name, @postal_code, @college_id);
     END
     ELSE IF @table_name = 'student'
