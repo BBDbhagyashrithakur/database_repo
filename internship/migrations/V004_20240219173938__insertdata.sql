@@ -9,7 +9,7 @@ VALUES
 ('Jawaharlal Nehru University ', '1998887770');
 
 --- tpo data
-INSERT INTO tpo (first_name, last_name, contact, email, depeartment, city_name, postal_code, college_id)
+INSERT INTO tpo (first_name, last_name, contact, email, department, city_name, postal_code, college_id)
 VALUES
 ('John', 'Doe', '1234567890', 'john.doe@example.com', 'Engineering', 'New York', '10001', 1),
 ('Alice', 'Smith', '1876543210', 'alice.smith@example.com', 'Computer Science', 'San Francisco', '94102', 2),
