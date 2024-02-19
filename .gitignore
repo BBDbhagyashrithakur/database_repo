@@ -1,4 +1,4 @@
 .git
 .terraform
-Filter.scpf
-flyway.toml
+# Filter.scpf
+# flyway.toml
