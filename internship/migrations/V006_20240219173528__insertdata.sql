@@ -2,11 +2,11 @@
 
 INSERT INTO college (college_name, contact)
 VALUES
-('Indian Institute of Technology (IIT) Bombay','1234556780'),
+('Indian Institute of Technology','1234556780'),
 ('University of Delhi', '1289876543'),
-('Indian Institute of Management (IIM) Ahmedabad', '1287654321'),
-('Anna University, Chennai', '1988776655'),
-('Jawaharlal Nehru University (JNU), New Delhi', '1998887770');
+('Indian Institute of Management Ahmedabad', '1287654321'),
+('Anna University Chennai', '1988776655'),
+('Jawaharlal Nehru University ', '1998887770');
 
 --- tpo data
 INSERT INTO tpo (first_name, last_name, contact, email, depeartment, city_name, postal_code, college_id)
