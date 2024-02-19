@@ -21,20 +21,20 @@ VALUES
 ---student data
 INSERT INTO student (first_name, last_name, contact, email, department, resume, college_id)
 VALUES
-('Emma', 'Johnson', '123-456-7890', 'emma.johnson@example.com', 'Computer Science', 'emma-resume.pdf', 1),
-('Michael', 'Williams', '987-654-3210', 'michael.williams@example.com', 'Engineering', 'Michael-resume.pdf', 2),
-('Sophia', 'Brown', '555-555-5555', 'sophia.brown@example.com', 'Sophia-resume.pdf', 3),
-('Oliver', 'Davis', '999-888-7770', 'oliver.davis@example.com', 'Marketing', 'Oliver-resume.pdf', 4),
-('Ava', 'Martinez', '111-222-3330', 'ava.martinez@example.com', 'Finance', 'Ava-resume.pdf', 5);
+('Emma', 'Johnson', '1245678990', 'emma.johnson@example.com', 'Computer Science', 'emma-resume.pdf', 1),
+('Michael', 'Williams', '9876543210', 'michael.williams@example.com', 'Engineering', 'Michael-resume.pdf', 2),
+('Sophia', 'Brown', '5555555555', 'sophia.brown@example.com', 'Sophia-resume.pdf', 3),
+('Oliver', 'Davis', '9998887770', 'oliver.davis@example.com', 'Marketing', 'Oliver-resume.pdf', 4),
+('Ava', 'Martinez', '1112223330', 'ava.martinez@example.com', 'Finance', 'Ava-resume.pdf', 5);
 
 ---company data
 INSERT INTO company (company_name, contact, email, location, industry_type)
 VALUES
-('ABC Technologies', '123-456-7890', 'info@abc.com', 'New York', 'Technology'),
-('XYZ Corporation', '987-654-3210', 'contact@xyzcorp.com', 'San Francisco', 'Finance'),
-('PQR Solutions', '555-555-5555', 'info@pqrsolutions.com', 'Chicago', 'Consulting'),
-('LMN Enterprises', '999-888-7770', 'contact@lmnent.com', 'Los Angeles', 'Retail'),
-('RST Industries', '111-222-3330', 'info@rstindustries.com', 'Houston', 'Manufacturing');
+('ABC Technologies', '1234567890', 'info@abc.com', 'New York', 'Technology'),
+('XYZ Corporation', '9876543210', 'contact@xyzcorp.com', 'San Francisco', 'Finance'),
+('PQR Solutions', '5555555555', 'info@pqrsolutions.com', 'Chicago', 'Consulting'),
+('LMN Enterprises', '9998887770', 'contact@lmnent.com', 'Los Angeles', 'Retail'),
+('RST Industries', '1112223330', 'info@rstindustries.com', 'Houston', 'Manufacturing');
 
 
 ---job_post data
