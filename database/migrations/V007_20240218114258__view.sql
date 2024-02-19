@@ -7,5 +7,3 @@ SELECT
 FROM college c
 JOIN tpo t ON c.college_id = t.college_id;
 
-
---select * from college_tpo_view;
