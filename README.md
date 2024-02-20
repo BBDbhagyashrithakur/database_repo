@@ -7,17 +7,16 @@
 
 CREATE VIEW college_tpo_view
 AS
-SELECT  
+SELECT 
     c.college_id, c.college_name, c.contact,
-    t.tpo_id, t.first_name, t.last_name, t.contact AS tpo_contact, t.email AS tpo_email,t.city_name, t.zip_code
+    t.tpo_id, t.first_name, t.last_name, t.contact AS tpo_contact, t.email AS tpo_email,t.city_name, t.postal_code
 FROM college c
 JOIN tpo t ON c.college_id = t.college_id;
 
 # calling view
 select * from college_tpo_view;
 
-![image](https://github.com/BBDbhagyashrithakur/database_repo/assets/159768548/b3d5e4d0-f12c-44a3-8e0f-e2a581ab11f3)
-
+![image](https://github.com/BBDbhagyashrithakur/database_repo/assets/159768548/4815986b-b71c-4ea6-b182-cbe6f2f2f9ce)
 
 
  ## Procedure to display student with company details.
