@@ -131,7 +131,6 @@ select * from GetStudentsByCount();
  
 - Login
 - Registration
--student Profile
-- TPO profile
 - Student Application
 - TPO Approch
+- colleges
