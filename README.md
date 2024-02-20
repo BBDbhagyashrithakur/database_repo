@@ -22,37 +22,94 @@ select * from college_tpo_view;
 
  ## Procedure to display student with company details.
 
-CREATE PROCEDURE GetStudentCompanyDetails
+CREATE PROCEDURE InsertData
+    @table_name NVARCHAR(50),
+    @first_name VARCHAR(50),
+    @last_name VARCHAR(50),
+    @contact VARCHAR(15),
+    @email VARCHAR(255),
+    @department VARCHAR(255),
+    @resume TEXT,
+    @college_id INT,
+    @city_name VARCHAR(255) = NULL,
+    @postal_code VARCHAR(15) = NULL,
+    @location VARCHAR(255) = NULL,
+    @industry_type VARCHAR(255) = NULL,
+    @job_title VARCHAR(255) = NULL,
+    @job_role VARCHAR(255) = NULL,
+    @job_desc VARCHAR(255) = NULL
 AS
 BEGIN
-    SELECT 
-        s.student_id, s.first_name AS student_first_name, s.last_name AS student_last_name, s.contact AS student_contact, s.email AS student_email, s.department AS student_department, s.resume,
-        co.company_id, co.company_name, co.contact AS company_contact, co.email AS company_email, co.location AS company_location, co.industry_type
-    FROM student s
-    JOIN company co ON s.college_id = co.company_id;
-END;
+    IF @table_name = 'tpo'
+    BEGIN
+        INSERT INTO tpo (first_name, last_name, contact, email, department, city_name, postal_code, college_id)
+        VALUES (@first_name, @last_name, @contact, @email, @department, @city_name, @postal_code, @college_id);
+    END
+    ELSE IF @table_name = 'student'
+    BEGIN
+        INSERT INTO student (first_name, last_name, contact, email, department, resume, college_id)
+        VALUES (@first_name, @last_name, @contact, @email, @department, @resume, @college_id);
+    END
+    ELSE IF @table_name = 'company'
+    BEGIN
+        INSERT INTO company (company_name, contact, email, location, industry_type)
+        VALUES (@first_name, @contact, @email, @location, @industry_type);
+    END
+    ELSE IF @table_name = 'job_post'
+    BEGIN
+        INSERT INTO job_post (job_title, job_role, job_desc, company_id)
+        VALUES (@job_title, @job_role, @job_desc, @college_id);
+    END
+END
+
 
 # calling procedure
-EXEC  GetStudentCompanyDetails
+EXEC InsertData 
+    @table_name = 'student',
+    @first_name = 'John',
+    @last_name = 'Doe',
+    @contact = '1234567890',
+    @email = 'john.doe@example.com',
+    @department = 'Computer Science',
+    @resume = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+    @college_id = 1;
 
-![image](https://github.com/BBDbhagyashrithakur/database_repo/assets/159768548/e57f8ae0-ae93-4547-8fb9-2de0ea769cea)
+    SELECT * FROM student WHERE first_name = 'John' AND last_name = 'Doe';
+
+![Proceduredata](https://github.com/BBDbhagyashrithakur/database_repo/assets/159768548/935fe7ae-602a-43f8-ab9c-360ce1796af4)
+
 
 ## Function to display student information by their name
 
-CREATE FUNCTION GetStudentsByName(@first_name VARCHAR(255))
+	CREATE FUNCTION GetCombinedData()
 RETURNS TABLE
 AS
 RETURN
 (
-    SELECT s.student_id, s.first_name, s.last_name, s.email
-    FROM student s
-    WHERE s.first_name = @first_name
+    SELECT tpo.first_name AS tpo_first_name, tpo.last_name AS tpo_last_name,
+           tpo.contact AS tpo_contact, tpo.email AS tpo_email,
+           tpo.department AS tpo_department, tpo.city_name AS tpo_city_name,
+           tpo.postal_code AS tpo_postal_code, tpo.college_id AS tpo_college_id,
+           student.first_name AS student_first_name, student.last_name AS student_last_name,
+           student.contact AS student_contact, student.email AS student_email,
+           student.department AS student_department, student.resume AS student_resume,
+           student.college_id AS student_college_id,
+           company.company_name AS company_name, company.contact AS company_contact,
+           company.email AS company_email, company.location AS company_location,
+           company.industry_type AS company_industry_type,
+           job_post.job_title AS job_title, job_post.job_role AS job_role,
+           job_post.job_desc AS job_desc, job_post.company_id AS company_id
+    FROM tpo
+    JOIN student ON tpo.college_id = student.college_id
+    JOIN company ON tpo.college_id = company.company_id
+    JOIN job_post ON company.company_id = job_post.company_id
 );
 
 # calling function
-select * from GetStudentsByName('shree')
+select *from GetCombinedData()
 
-![image](https://github.com/BBDbhagyashrithakur/database_repo/assets/159768548/8af9876e-958d-4174-b1f5-bafe772663fc)
+![Functiondata](https://github.com/BBDbhagyashrithakur/database_repo/assets/159768548/536283ff-28b5-41dc-8a87-cfd70f469a48)
+
 
 
 ## Scalar function to count number of student
