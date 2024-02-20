@@ -1,7 +1,4 @@
 # database_repo
-
-![dataflow](https://github.com/BBDbhagyashrithakur/database_repo/assets/159768548/960322a2-dfa8-4e3e-8c48-d064d8645890)
-
 ![dataflow](https://github.com/BBDbhagyashrithakur/database_repo/assets/159768548/1061472c-9c22-4faf-9d37-3faecc897d35)
 
  ## View to display college and tpo information
