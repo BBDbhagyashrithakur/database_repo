@@ -34,16 +34,27 @@ For reference visit https://flywaydb.org/documentation.
 ## Workflow Steps 
 
 1.Checkout code: This step checks out the repository code.
+
 2.Setup Flyway CLI: Installs the required dependencies and sets up Flyway CLI.
+
 3.Create Secrets in GitHub:
+
   Navigate to your GitHub repository.
+  
   Go to the "Settings" tab.
+  
   In the left sidebar, click on "Secrets."
+  
   Click on "New repository secret" and add the following secrets:
+  
   DB_BUILD_USERNAME: Your database username.
+  
   DB_BUILD_PASSWORD: Your database password.
+  
   DB_BUILD_URL: Your database URL.
+  
 4.Flyway Repair: Repairs the metadata table if necessary.
+
 5.Flyway Migrate: Executes database migrations using Flyway.
 
 ## Features --
