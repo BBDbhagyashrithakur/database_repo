@@ -1,131 +1,44 @@
 # database_repo
 ![dataflow](https://github.com/BBDbhagyashrithakur/database_repo/assets/159768548/1061472c-9c22-4faf-9d37-3faecc897d35)
 
- ## View to display college and tpo information
+## Technology Used :
+1. Terraform:
+Used for RDS instance creation from Infrastructure as a Code.
+2. FlyWay:
+Used For The Migration of The Database
+3. GitHub Actions:
+Used For The CICD Pipeline. 
 
-CREATE VIEW college_tpo_view
-AS
-SELECT 
-    c.college_id, c.college_name, c.contact,
-    t.tpo_id, t.first_name, t.last_name, t.contact AS tpo_contact, t.email AS tpo_email,t.city_name, t.postal_code
-FROM college c
-JOIN tpo t ON c.college_id = t.college_id;
+## Terraform
 
-# calling view
-select * from college_tpo_view;
+## Terraform Git Repository
+This repository contains Terraform code to provision and manage infrastructure on [your cloud provider]. It simplifies the deployment process and ensures infrastructure as code principles are followed.
 
-![image](https://github.com/BBDbhagyashrithakur/database_repo/assets/159768548/4815986b-b71c-4ea6-b182-cbe6f2f2f9ce)
+## Flyway Installation
+Flyway is an open-source database-independent library for tracking, managing, and applying database changes. Flyway is an open-source database migration tool that helps you version control your database schema and apply changes to it over time. Here are the general steps to install Flyway:
+1.Visit the official Flyway website at https://flywaydb.org/.
+2.Navigate to the "Downloads" section.
+3.Download the version of Flyway that corresponds to your operating system (Windows, macOS, or Linux).
+4.Flyway can be run from any directory, but you may want to add its location to your system's PATH environment variable for convenience.
+5.Verify Installation: flyway -v.
+6.Database Configuration: Before using Flyway, you need to configure it for your specific database. Create a configuration file named flyway.conf or use command-line options.
 
+For reference visit https://flywaydb.org/documentation.
 
- ## Procedure to display student with company details.
+## Workflow Steps 
 
-CREATE PROCEDURE InsertData
-    @table_name NVARCHAR(50),
-    @first_name VARCHAR(50),
-    @last_name VARCHAR(50),
-    @contact VARCHAR(15),
-    @email VARCHAR(255),
-    @department VARCHAR(255),
-    @resume TEXT,
-    @college_id INT,
-    @city_name VARCHAR(255) = NULL,
-    @postal_code VARCHAR(15) = NULL,
-    @location VARCHAR(255) = NULL,
-    @industry_type VARCHAR(255) = NULL,
-    @job_title VARCHAR(255) = NULL,
-    @job_role VARCHAR(255) = NULL,
-    @job_desc VARCHAR(255) = NULL
-AS
-BEGIN
-    IF @table_name = 'tpo'
-    BEGIN
-        INSERT INTO tpo (first_name, last_name, contact, email, department, city_name, postal_code, college_id)
-        VALUES (@first_name, @last_name, @contact, @email, @department, @city_name, @postal_code, @college_id);
-    END
-    ELSE IF @table_name = 'student'
-    BEGIN
-        INSERT INTO student (first_name, last_name, contact, email, department, resume, college_id)
-        VALUES (@first_name, @last_name, @contact, @email, @department, @resume, @college_id);
-    END
-    ELSE IF @table_name = 'company'
-    BEGIN
-        INSERT INTO company (company_name, contact, email, location, industry_type)
-        VALUES (@first_name, @contact, @email, @location, @industry_type);
-    END
-    ELSE IF @table_name = 'job_post'
-    BEGIN
-        INSERT INTO job_post (job_title, job_role, job_desc, company_id)
-        VALUES (@job_title, @job_role, @job_desc, @college_id);
-    END
-END
-
-
-# calling procedure
-EXEC InsertData 
-    @table_name = 'student',
-    @first_name = 'John',
-    @last_name = 'Doe',
-    @contact = '1234567890',
-    @email = 'john.doe@example.com',
-    @department = 'Computer Science',
-    @resume = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-    @college_id = 1;
-
-    SELECT * FROM student WHERE first_name = 'John' AND last_name = 'Doe';
-
-![Proceduredata](https://github.com/BBDbhagyashrithakur/database_repo/assets/159768548/935fe7ae-602a-43f8-ab9c-360ce1796af4)
-
-
-## Function to display student information by their name
-
-	CREATE FUNCTION GetCombinedData()
-RETURNS TABLE
-AS
-RETURN
-(
-    SELECT tpo.first_name AS tpo_first_name, tpo.last_name AS tpo_last_name,
-           tpo.contact AS tpo_contact, tpo.email AS tpo_email,
-           tpo.department AS tpo_department, tpo.city_name AS tpo_city_name,
-           tpo.postal_code AS tpo_postal_code, tpo.college_id AS tpo_college_id,
-           student.first_name AS student_first_name, student.last_name AS student_last_name,
-           student.contact AS student_contact, student.email AS student_email,
-           student.department AS student_department, student.resume AS student_resume,
-           student.college_id AS student_college_id,
-           company.company_name AS company_name, company.contact AS company_contact,
-           company.email AS company_email, company.location AS company_location,
-           company.industry_type AS company_industry_type,
-           job_post.job_title AS job_title, job_post.job_role AS job_role,
-           job_post.job_desc AS job_desc, job_post.company_id AS company_id
-    FROM tpo
-    JOIN student ON tpo.college_id = student.college_id
-    JOIN company ON tpo.college_id = company.company_id
-    JOIN job_post ON company.company_id = job_post.company_id
-);
-
-# calling function
-select *from GetCombinedData()
-
-![Functiondata](https://github.com/BBDbhagyashrithakur/database_repo/assets/159768548/536283ff-28b5-41dc-8a87-cfd70f469a48)
-
-
-
-## Scalar function to count number of student
-
-CREATE FUNCTION GetStudentsByCount()
-RETURNS TABLE
-AS
-RETURN
-( 
-SELECT count(student_id) AS NumStudents FROM Student
-);
-
-# calling scalar function 
-
-select * from GetStudentsByCount();
-
-![image](https://github.com/BBDbhagyashrithakur/database_repo/assets/159768548/99f407e8-57ee-4941-99fa-0e65d22605cb)
-
-
+1.Checkout code: This step checks out the repository code.
+2.Setup Flyway CLI: Installs the required dependencies and sets up Flyway CLI.
+3.Create Secrets in GitHub:
+  Navigate to your GitHub repository.
+  Go to the "Settings" tab.
+  In the left sidebar, click on "Secrets."
+  Click on "New repository secret" and add the following secrets:
+  DB_BUILD_USERNAME: Your database username.
+  DB_BUILD_PASSWORD: Your database password.
+  DB_BUILD_URL: Your database URL.
+4.Flyway Repair: Repairs the metadata table if necessary.
+5.Flyway Migrate: Executes database migrations using Flyway.
 
 ## Features --
  
