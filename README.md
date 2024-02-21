@@ -16,11 +16,17 @@ This repository contains Terraform code to provision and manage infrastructure o
 
 ## Flyway Installation
 Flyway is an open-source database-independent library for tracking, managing, and applying database changes. Flyway is an open-source database migration tool that helps you version control your database schema and apply changes to it over time. Here are the general steps to install Flyway:
+
 1.Visit the official Flyway website at https://flywaydb.org/.
+
 2.Navigate to the "Downloads" section.
+
 3.Download the version of Flyway that corresponds to your operating system (Windows, macOS, or Linux).
+
 4.Flyway can be run from any directory, but you may want to add its location to your system's PATH environment variable for convenience.
+
 5.Verify Installation: flyway -v.
+
 6.Database Configuration: Before using Flyway, you need to configure it for your specific database. Create a configuration file named flyway.conf or use command-line options.
 
 For reference visit https://flywaydb.org/documentation.
