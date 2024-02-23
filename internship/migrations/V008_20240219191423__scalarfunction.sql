@@ -3,5 +3,5 @@ RETURNS TABLE
 AS
 RETURN
 ( 
-SELECT count(student_id) AS NumStudents FROM Student
+SELECT count(StudentId) AS NumStudents FROM Student
 );
