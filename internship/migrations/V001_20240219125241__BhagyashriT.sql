@@ -1,1 +1,1 @@
-create table example(id int,name varchar(255));
+create table temp(id int,name varchar(255));
