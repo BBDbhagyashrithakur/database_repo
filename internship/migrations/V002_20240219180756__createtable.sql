@@ -1,59 +1,155 @@
-CREATE TABLE college
+CREATE TABLE Country
 (
-college_id INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
-college_name VARCHAR(255) NOT NULL,
-contact VARCHAR(15) NOT NULL,
+ CountryId INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
+ Name VARCHAR(255) NOT NULL,
+ CreatedDate DATE DEFAULT GETDATE(),
+ ModifiedDate DATE  GETDATE()
+);
+  
+CREATE TABLE State
+(
+ StateId INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
+ CountryId INT NOT NULL,
+ Name VARCHAR(255) NOT NULL,
+ CreatedDate DATE DEFAULT GETDATE(),
+ ModifiedDate DATE  GETDATE()
 );
 
-
-CREATE TABLE tpo
+CREATE TABLE City
 (
-tpo_id INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
-first_name VARCHAR(50) NOT NULL,
-last_name VARCHAR(50) NOT NULL,
-contact VARCHAR(15) NOT NULL,
-email VARCHAR(255) NOT NULL,
-department VARCHAR(255) NOT NULL,
-city_name VARCHAR(255) NOT NULL,
-postal_code VARCHAR(15) NOT NULL,
-college_id INT NOT NULL
+ CityId INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
+ StateId INT NOT NULL,
+ Name VARCHAR(255) NOT NULL,
+ CreatedDate DATE DEFAULT GETDATE(),
+ ModifiedDate DATE  GETDATE()
+);
+ 
+CREATE TABLE Address
+(
+ AddressId INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
+ BuildingNumber INT NOT NULL,
+ CityId INT NOT NULL,
+ StreetName VARCHAR(255) NOT NULL,
+ Locality VARCHAR(255) NOT NULL,
+ CreatedDate DATE DEFAULT GETDATE(),
+ ModifiedDate DATE  GETDATE()
 );
 
-CREATE TABLE student
+CREATE TABLE User
 (
-  student_id INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
-  first_name VARCHAR(50) NOT NULL,
-  last_name VARCHAR(50) NOT NULL,
-  contact VARCHAR(15)  NOT NULL,
-  email VARCHAR(255) NOT NULL,
-  department VARCHAR(255) NOT NULL,
-  resume TEXT NOT NULL,
-    college_id INT NOT NULL
+  Id INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
+  FirstName VARCHAR(100) NOT NULL,
+  LastName VARCHAR(100) NOT NULL,
+  Email VARCHAR(255) UNIQUE NOT NULL,
+  MobileNumber VARCHAR(15) NOT NULL,
+   CreatedDate DATE DEFAULT GETDATE(),
+ ModifiedDate DATE  GETDATE()
 );
 
-CREATE TABLE company
+ 
+CREATE TABLE Student
 (
-company_id INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
-  company_name VARCHAR(50) NOT NULL,
-  contact VARCHAR(15) NOT NULL,
-  email VARCHAR(255) NOT NULL,
-  location varchar(255) NOT NULL,
-  industry_type VARCHAR(255) NOT NULL
+StudentId INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
+UserId INT NOT NULL,
+CollegeId INT NOT NULL,
+DepartmentId INT NOT NULL,
+Resume VARCHAR(255) NOT NULL
 );
 
-CREATE TABLE job_post
+CREATE TABLE PlacementOfficer
 (
-  job_id INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
-  job_title VARCHAR(255) NOT NULL,
-  job_role VARCHAR(255)NOT NULL,
-  job_desc  VARCHAR(255) NOT NULL,
-  company_id INT NOT NULL
+ PlacementOffId INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
+ UserId INT NOT NULL,
+ CollegeId INT NOT NULL,
+ JobId INT NOT NULL
 );
 
-CREATE TABLE application
+CREATE TABLE College
 (
-appliacation_id  INT IDENTITY(1,1) PRIMARY KEY  NOT NULL,
-job_id INT NOT NULL,
-student_id INT NOT NULL,
-date_applied DATE NOT NULL
+CollegeId INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
+InstituteId INT NOT NULL,
+AddressId INT NOT NULL,
+CollegeName VARCHAR(255) NOT NULL,
+Email VARCHAR(100) UNIQUE NOT NULL,
+PhoneNumber VARCHAR(15) NOT NULL,
+ CreatedDate DATE DEFAULT GETDATE(),
+ ModifiedDate DATE  GETDATE()
 );
+
+CREATE TABLE InstituteType
+
+(
+  InstituteId INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
+  InstituteType VARCHAR(255) NOT NULL,
+  CreatedDate DATE DEFAULT GETDATE(),
+  ModifiedDate DATE  GETDATE()
+)
+ 
+ 
+CREATE TABLE Company
+(
+  CompanyId INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
+  AddressId INT NOT NULL,
+  CompanytypeId INT NOT NULL,
+  CompanyName VARCHAR(50) NOT NULL,
+  Email VARCHAR(100) UNIQUE NOT NULL,
+  PhoneNumber VARCHAR(15) NOT NULL,
+  CreatedDate DATE DEFAULT GETDATE(),
+  ModifiedDate DATE  GETDATE()
+);
+
+ CREATE TABLE Companytype
+(
+ CompanytypeId INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
+ Type VARCHAR(50) NOT NULL,
+  CreatedDate DATE DEFAULT GETDATE(),
+ ModifiedDate DATE  GETDATE()
+); 
+
+CREATE TABLE Jobpost
+(
+  JobId INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
+  CompanyId INT NOT NULL,
+  SkillId INT NOT NULL,
+  Title VARCHAR(255) NOT NULL,
+  Description  VARCHAR(255) NOT NULL,
+  JobLocation VARCHAR(255) NOT NULL,
+  CreatedDate DATE DEFAULT GETDATE(),
+ ModifiedDate DATE  GETDATE()
+);
+
+CREATE TABLE Application
+(
+AppliacationId  INT IDENTITY(1,1) PRIMARY KEY  NOT NULL,
+StudentId INT  NOT NULL,
+JobId INT  NOT NULL,
+StatusId INT  NOT NULL,
+PlacementOffId INT NOT NULL,
+DateApllied DATE NOT NULL,
+ CreatedDate DATE DEFAULT GETDATE(),
+ ModifiedDate DATE  GETDATE()
+);
+
+CREATE TABLE Department
+(
+  DepartmentId INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
+  Name VARCHAR(255) NOT NULL,
+   CreatedDate DATE DEFAULT GETDATE(),
+ ModifiedDate DATE  GETDATE()
+);
+
+CREATE TABLE Skills
+(
+ SkillId INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
+ SkillName VARCHAR(255) NOT NULL,
+  CreatedDate DATE DEFAULT GETDATE(),
+ ModifiedDate DATE  GETDATE()
+);
+ 
+ CREATE TABLE ApplicationStatus
+(
+  StatusId INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
+  Status VARCHAR(255) NOT NULL,
+ CreatedDate DATE DEFAULT GETDATE(),
+ ModifiedDate DATE  GETDATE()
+)
