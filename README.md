@@ -1,5 +1,7 @@
 # database_repo
-![dataflow](https://github.com/BBDbhagyashrithakur/database_repo/assets/159768548/1061472c-9c22-4faf-9d37-3faecc897d35)
+
+![ERDdatabase1](https://github.com/BBDbhagyashrithakur/database_repo/assets/159768617/ace6a400-9248-4174-87d3-04c56f9864d9)
+
 
 ## Technology Used :
 1. Terraform:
