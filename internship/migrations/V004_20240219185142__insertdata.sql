@@ -1,56 +1,47 @@
-INSERT INTO college (college_name, contact)
-VALUES
-('Indian Institute of Technology','1234556780'),
-('University of Delhi', '1289876543'),
-('Indian Institute of Management Ahmedabad', '1287654321'),
-('Anna University Chennai', '1988776655'),
-('Jawaharlal Nehru University ', '1998887770');
+INSERT INTO Country(CountryName) values("India"),("India"),("India"),("India"),("India");
+ 
+INSERT INTO State(CountryId,StateName)VALUES(1,'Maharashtra'),(2,'Gujarat'),(3,'Bihar'),(4,'Aandhrapradesh'),(5,'Haryana');
 
+INSERT INTO City(CountryId,StateName)VALUES(1,'Mumbai'),(2,'Surat'),(3,'Indore'),(2,'Rajkot'),(1,'Pune');
 
-INSERT INTO tpo (first_name, last_name, contact, email, department, city_name, postal_code, college_id)
-VALUES
-('John', 'Doe', '1234567890', 'john.doe@example.com', 'Engineering', 'New York', '10001', 1),
-('Alice', 'Smith', '1876543210', 'alice.smith@example.com', 'Computer Science', 'San Francisco', '94102', 2),
-('Mike', 'Johnson', '1555555555', 'mike.johnson@example.com', 'Business Administration', 'Chicago', '60601', 3),
-('Emily', 'Brown', '1998887770', 'emily.brown@example.com', 'Marketing', 'Los Angeles', '90001', 4),
-('Sarah', 'Wilson', '1112223330', 'sarah.wilson@example.com', 'Finance', 'Houston', '77002', 5);
+INSERT INTO Address (BuildingNumber,CityId,StreetName) values(1,10,1,'FC Road Mumbai'),(2,09,'Surat Road'),(3,08,'Indore road 101'),(4,04,'Shradha street'),
+(5,03,'FC Road Pune')
+ 
+INSERT INTO User(Id,FirstName,LastName,Email,MobileNumber) VALUES(1,'John','Saw','johnsaw123@gmail.com','9876543245'),(2,'Ram','Kumar','ramkumar34@gmail.com','9876543245'),
+(3,'Ramesh','Rao','rameshrao23@gmail.com','9876543245'),(4,'Sujit','Bhatt','sujitbhatt93@gmail.com','9876543245'),(5,'Suresh','Kapoor','sureshkapoor13@gmail.com','9876543245');
 
+INSERT INTO Student(StudentId,UserId,CollegeId,DepartmentId) values (1,1,1,1,'johnresume.pdf'),(2,2,2,2,'ramresume.pdf'),(3,3,3,3,'rameshresume.pdf'),(4,4,4,4,'sujitresume.pdf')
+(5,5,5,5,'sureshresume.pdf')
 
-INSERT INTO student (first_name, last_name, contact, email, department, resume, college_id)
-VALUES
-('Emma', 'Johnson', '1245678990', 'emma.johnson@example.com', 'Computer Science', 'emma-resume.pdf', 1),
-('Michael', 'Williams', '1876543210', 'michael.williams@example.com', 'Engineering', 'Michael-resume.pdf', 2),
-('Sophia', 'Brown', '1555555555', 'sophia.brown@example.com', 'Engineering','Sophia-resume.pdf', 3),
-('Oliver', 'Davis', '1998887770', 'oliver.davis@example.com', 'Marketing', 'Oliver-resume.pdf', 4),
-('Ava', 'Martinez', '1112223330', 'ava.martinez@example.com', 'Finance', 'Ava-resume.pdf', 5);
+INSERT INTO PlacementOfficer(UserId,CollegeId,JobId) VALUES(5,1,3),(3,4,2),(4,2,5),(2,4,3),(3,5,2);
 
+INSERT INTO College(CollegeId,AddressId,InstituteId,CollegeName,Email,PhoneNumber) values(1,1,1,"IIT Kharagpur","iitkharagpur12@gmail.com","96548223658")
+(2,2,2,"IIT Madras","iitmadras23@gmail.com","96582147365"),
+(3,3,3,"IIT Delhi","iitdelhi234@gmail.com","98657412365"),
+(4,4,4,"IIT Hyderabad","iithybad@gmail.com","9654783214"),
+(5,5,5,"IIT Bombay","iitbombay@gmail.com","9652115201");
 
+INSERT INTO InstituteType(InstituteType)values('IT'),('Management'),('Arts'),('Science And Commerce'),('Medical');
 
-INSERT INTO company (company_name, contact, email, location, industry_type)
-VALUES
-('ABC Technologies', '1234567890', 'info@abc.com', 'New York', 'Technology'),
-('XYZ Corporation', '9876543210', 'contact@xyzcorp.com', 'San Francisco', 'Finance'),
-('PQR Solutions', '5555555555', 'info@pqrsolutions.com', 'Chicago', 'Consulting'),
-('LMN Enterprises', '9998887770', 'contact@lmnent.com', 'Los Angeles', 'Retail'),
-('RST Industries', '1112223330', 'info@rstindustries.com', 'Houston', 'Manufacturing');
+INSERT INTO Company(AddressId,CompanyName,Email,PhoneNumber) values ('BBD','bbd@.com','4576543423'),('TCS','tcs@.com','5464738343'),('INFOSYS','infosys.com','7464533242'),('HEXAWARE','hexaware.@com','9876786798'), ('ACCENTURE','accenture.@com','6454879606');
 
+INSERT INTO CampanyType(CampanyType)values('Hybrid'),('Non IT'),('IT'),('Service base'),('Product Base');
 
+INSERT INTO Jobpost(CompanyId,SkillId,Title,Role,Description,JobLocation) value(1,2,'Software Developer','expertise knowledge of software development','Mumabi'),
+ (2,3,'Tester','expertise knowledge of software testing','pune'),(3,4,'Software Developer','Developer','expertise knowledge of software development','surat'),
+(4,5,'Data Analytics','expertise knowledge of data analysis','surat'),values(2,4,'databse administrator','expertise knowledge of data operations','Mumbai'); 
+     
+INSERT INTO Application(AppliacationId,JobId,StudentId,PlacementOffId,DateApllied) values(1,1,1,,1,"2024-01-15"),(2,2,2,,2,"2024-01-14"),
+(3,3,3,,3,'2024-12-13'),
+(4,4,4,,4,'2024-02-10'),
+(5,5,5,,5,'2024-02-02');
 
-INSERT INTO job_post (job_title, job_role, job_desc, company_id)
-VALUES
-('Software Engineer', 'Development', 'Design and implement software solutions', 1),
-('Marketing Manager', 'Marketing', 'Develop and implement marketing strategies', 2),
-('Sales Representative', 'Sales', 'Generate sales leads and close deals', 3),
-('Financial Analyst', 'Finance', 'Analyze financial data and provide insights', 4),
-('HR Coordinator', 'Human Resources', 'Manage HR processes and employee relations', 5);
+INSERT INTO Department(DepartmentId,Name) VALUES(1,"Computer Science and Engineering"),
+(2,'Industrial Engineering and Management'),
+(3,'Mechanical Engineering'),
+(4,'CSE'),
+(5,'Computer Science & Engineering');
+ 
+INSERT INTO Skills(skills,SkillName) VALUES(1,'Java'),(2,'Javascript'),(3,'Python'), (4,'React'), (5,'NodeJs');
 
-
-
-INSERT INTO application (job_id, student_id, date_applied)
-VALUES
-(2, 1, '2022-01-15'),
-(3, 2, '2022-01-16'),
-(4, 3, '2022-01-17'),
-(5, 4, '2022-01-18'),
-(6, 5, '2022-01-19');
-
+INSERT INTO ApplicationStatus(Status)values('Select'),('Reject'),('Select'),('Reject'),('Select');
