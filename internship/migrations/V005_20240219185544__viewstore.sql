@@ -1,7 +1,17 @@
-CREATE VIEW college_tpo_view
-AS
-SELECT 
-    c.college_id, c.college_name, c.contact,
-    t.tpo_id, t.first_name, t.last_name, t.contact AS tpo_contact, t.email AS tpo_email,t.city_name, t.postal_code
-FROM college c
-JOIN tpo t ON c.college_id = t.college_id;
+CREATE VIEW CollegePlacementCountView AS
+SELECT
+    C.CollegeId,
+    C.InstituteId,
+    C.AddressId,
+    C.CollegeName,
+    C.Email,
+    C.PhoneNumber,
+    C.CreatedDate AS CollegeCreatedDate,
+    C.ModifiedDate AS CollegeModifiedDate,
+    COUNT(P.PlacementOffId) AS PlacementOfficerCount
+FROM
+    College C
+LEFT JOIN
+    PlacementOfficer P ON C.CollegeId = P.CollegeId
+GROUP BY
+    C.CollegeId, C.InstituteId, C.AddressId, C.CollegeName, C.Email, C.PhoneNumber, C.CreatedDate, C.ModifiedDate;
