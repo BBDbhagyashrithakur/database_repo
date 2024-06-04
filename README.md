@@ -58,11 +58,3 @@ For reference visit https://flywaydb.org/documentation.
 4.Flyway Repair: Repairs the metadata table if necessary.
 
 5.Flyway Migrate: Executes database migrations using Flyway.
-
-## Features --
- 
-- Login
-- Registration
-- Student Application
-- TPO Approch
-- colleges
