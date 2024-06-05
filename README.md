@@ -1,6 +1,5 @@
 # database_repo
 
-![ERDdatabase1](https://github.com/BBDbhagyashrithakur/database_repo/assets/159768617/ace6a400-9248-4174-87d3-04c56f9864d9)
 
 
 ## Technology Used :
